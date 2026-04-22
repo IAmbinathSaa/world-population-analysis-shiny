@@ -1,0 +1,66 @@
+---
+title: "world_population.csv"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r}
+setwd("C:/Users/Binath/Documents/KDU/##FIRST SEM/programing with R/world population")
+df=read.csv("world_population.csv")
+```
+
+```{r}
+summary(df)
+```
+```{r}
+head(df,10)
+```
+```{r}
+colSums(is.na(df))
+```
+```{r}
+ggplot(df,aes(x=Migrants..net.,y=Population..2020.))+
+  geom_point( colour ="blue")
+```
+```{r}
+ggplot(df,aes(x=Land.Area..Km..,y=Density..P.Km..))+
+  geom_col( colour ="red")
+```
+```{r}
+ggplot(df,aes(x=Land.Area..Km..,y=Migrants..net.))+
+  geom_col( colour ="green")
+```
+
+```{r}
+ggplot(df,aes(x=World.Share,y=Population..2020.))+
+ geom_point( colour ="orange")
+```
+```{r}
+model = lm(Population..2020. ~ World.Share,data = df)
+summary(model)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
